@@ -2,23 +2,19 @@ compras = []
 while True :
     opcao = input('Selecione uma opção \n [i]nserir [a]pagar [l]istar [s]air:')
     if opcao == 'i':
-        insere = input('\nInsira o Item')
+        insere = input('\nInsira o Item: ')
         if insere in compras:
             print('Item já se encontra na lista\n')
         else:
-            compras.insert(len(compras),insere)
+            compras.append(insere)
             print('Item inserido com sucesso \n')
     elif opcao == 'a':
-        apaga = input('Qual valor deseja apagar?')
-        for indice ,item in enumerate(compras):
-            cont = False
-            if item == apaga:
-                compras.pop(indice)
-                print("Item apagado com sucesso")
-                cont = True
-            
-            if cont == False:
-                print("Nenhum item foi apagado")                 
+        apaga = input('Qual indice deseja apagar?: ')
+        teste = compras.pop(int(apaga))
+        if teste:
+            print("Apagado com sucesso")
+        else:
+            print("Item não encontrado")                 
     elif opcao == 'l':
         if compras:
             for item in enumerate(compras):
